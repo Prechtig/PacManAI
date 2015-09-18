@@ -1,14 +1,12 @@
 package behaviour.tree.composite;
 
-import java.util.List;
-
 import pacman.game.Game;
 import behaviour.tree.INode;
 import behaviour.tree.Status;
 
 public class Sequence extends Composite {
 	
-	public Sequence(List<INode> children) {
+	public Sequence(INode... children) {
 		super(children);
 	}
 

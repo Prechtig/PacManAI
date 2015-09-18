@@ -22,7 +22,6 @@ public class SimpleNeuralNetworkController extends NeuralNetworkController {
 	@Override
 	public MOVE getMove(Game game, long timeDue) {
 		network.updateScore(currentRunNumber, game.getScore());
-//		currentGeneration.addFitnessToNetwork(0, game.getScore(), network);
 		return getBestMove(game);
 	}
 	

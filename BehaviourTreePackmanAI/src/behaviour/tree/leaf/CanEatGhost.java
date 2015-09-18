@@ -28,7 +28,7 @@ public class CanEatGhost implements INode {
 		}
 		
 		if(minGhost!=null) { //we found an edible ghost
-			DataContext.getInstance().setCloseEdibleGhost(minGhost);
+			DataContext.setCloseEdibleGhost(minGhost);
 			return Status.SUCCESS;
 		}
 		return Status.FAILURE;

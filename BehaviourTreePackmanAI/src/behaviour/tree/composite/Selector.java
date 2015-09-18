@@ -1,14 +1,12 @@
 package behaviour.tree.composite;
 
-import java.util.List;
-
 import pacman.game.Game;
 import behaviour.tree.INode;
 import behaviour.tree.Status;
 
 public class Selector extends Composite {
 	
-	public Selector(List<INode> children) {
+	public Selector(INode... children) {
 		super(children);
 	}
 

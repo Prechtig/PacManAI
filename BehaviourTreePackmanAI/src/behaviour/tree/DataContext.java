@@ -6,42 +6,40 @@ import pacman.game.Game;
 
 public class DataContext {
 	
-	// Singleton
-	private static DataContext instance;
-	private DataContext() {}
-	public static DataContext getInstance() {
-		if(instance == null)
-			instance = new DataContext();
-		return instance;
-	}
+	private static Game game;
+	private static GHOST closestGhost;
+	private static GHOST closeEdibleGhost;
+	private static MOVE nextMove;
+	private static int closestPowerPillNodeIndex;
 	
-	private Game game;
-	private GHOST closeGhost;
-	private GHOST closeEdibleGhost;
-	private MOVE nextMove;
-	
-	public Game getGame() {
+	public static Game getGame() {
 		return game;
 	}
-	public void setGame(Game game) {
-		this.game = game;
+	public static void setGame(Game game) {
+		DataContext.game = game;
 	}
-	public GHOST getCloseGhost() {
-		return closeGhost;
+	public static GHOST getClosestGhost() {
+		return closestGhost;
 	}
-	public void setCloseGhost(GHOST closeGhost) {
-		this.closeGhost = closeGhost;
+	public static void setClosestGhost(GHOST closeGhost) {
+		DataContext.closestGhost = closeGhost;
 	}
-	public GHOST getCloseEdibleGhost() {
+	public static GHOST getCloseEdibleGhost() {
 		return closeEdibleGhost;
 	}
-	public void setCloseEdibleGhost(GHOST closeEdibleGhost) {
-		this.closeEdibleGhost = closeEdibleGhost;
+	public static void setCloseEdibleGhost(GHOST closeEdibleGhost) {
+		DataContext.closeEdibleGhost = closeEdibleGhost;
 	}
-	public MOVE getNextMove() {
+	public static MOVE getNextMove() {
 		return nextMove;
 	}
-	public void setNextMove(MOVE nextMove) {
-		this.nextMove = nextMove;
+	public static void setNextMove(MOVE nextMove) {
+		DataContext.nextMove = nextMove;
+	}
+	public static int getClosestPowerPillNodeIndex() {
+		return closestPowerPillNodeIndex;
+	}
+	public static void setClosestPowerPillNodeIndex(int closestPowerPillNodeIndex) {
+		DataContext.closestPowerPillNodeIndex = closestPowerPillNodeIndex;
 	}
 }

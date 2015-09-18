@@ -12,9 +12,9 @@ public class EatGhost implements INode {
 
 	@Override
 	public Status run(Game game) {
-		GHOST ghost = DataContext.getInstance().getCloseEdibleGhost();
+		GHOST ghost = DataContext.getCloseEdibleGhost();
 		MOVE nextMove = game.getNextMoveTowardsTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(ghost),DM.PATH);
-		DataContext.getInstance().setNextMove(nextMove);
+		DataContext.setNextMove(nextMove);
 		return Status.SUCCESS;
 	}
 

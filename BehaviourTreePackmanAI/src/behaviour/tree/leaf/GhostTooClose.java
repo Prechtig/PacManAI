@@ -23,7 +23,7 @@ public class GhostTooClose implements INode {
 				if(distanceFromGhost < minDistance) {
 					if(distanceFromGhost < closestGhostDistance) {
 						closestGhost = ghost;
-						DataContext.getInstance().setCloseGhost(closestGhost);
+						DataContext.setClosestGhost(closestGhost);
 					}
 					
 				}

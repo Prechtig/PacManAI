@@ -1,5 +1,7 @@
 package evolution;
 
+import io.IOManager;
+
 import java.util.EnumMap;
 
 import network.Network;
@@ -24,6 +26,7 @@ public class Evovler {
 	private static double initialWeight, initialBias;
 	private static boolean runInfinite;
 	private static double terminalAverageFitness;
+	private static int generationSaveInterval;
 	
 	private static void setDefaultArgs() {
 		// General
@@ -33,12 +36,13 @@ public class Evovler {
 		
 		// Neurons
 		inputNeurons = 10;
-		hiddenLayerNeurons = 10;
+		hiddenLayerNeurons = 3;
 		outputNeurons = 1;
 
 		// Generation
 		generationNumber = 1;
 		generationSize = 100;
+		generationSaveInterval = 10;
 
 		// Mutation
 		numberOfElitists = 10;
@@ -59,11 +63,16 @@ public class Evovler {
 
 		Network network = new Network(inputNeurons, hiddenLayerNeurons, outputNeurons);
 		network.setWeightsAndBiases(initialWeight, initialBias);
-		pacmanController = new SimpleNeuralNetworkController(network);
-
 		Generation generation = new Generation(generationNumber, network, generationSize, mutationChance, mutationIntensity);
+
+		pacmanController = new SimpleNeuralNetworkController(network);
+		
 		do {
 			evaluateGeneration(generation);
+			
+			if(generationNumber % generationSaveInterval == 0) {
+				IOManager.saveGenerationToFile(new Generation(generation.getNetworksSortedByFitness(), generation.getGenerationNumber()));
+			}
 			
 			printStatusToTerminal(generation);
 			generationNumber++;

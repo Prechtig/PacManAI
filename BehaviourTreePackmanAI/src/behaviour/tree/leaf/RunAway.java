@@ -12,9 +12,9 @@ public class RunAway implements INode {
 
 	@Override
 	public Status run(Game game) {
-		GHOST ghost = DataContext.getInstance().getCloseGhost();
+		GHOST ghost = DataContext.getClosestGhost();
 		MOVE nextMove = game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(ghost),DM.PATH);
-		DataContext.getInstance().setNextMove(nextMove);
+		DataContext.setNextMove(nextMove);
 		return Status.SUCCESS;
 	}
 

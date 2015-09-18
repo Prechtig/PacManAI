@@ -12,11 +12,18 @@ import network.Network;
 public class Generation {
 	private List<Network> networks;
 	private int generationNumber;
+	
+	public Generation(List<Network> networks, int generationNumber) {
+		this.networks = networks;
+		this.generationNumber = generationNumber;
+	}
 
 	/***
 	 * Seeds a generation from a single parent.
 	 */
-	public Generation(int number, Network parent, int size, double chanceOfMutation, double intensity) {
+	public Generation(int generationNumber, Network parent, int size, double chanceOfMutation, double intensity) {
+		this.generationNumber = generationNumber;
+		
 		List<Network> inputNetworks = new ArrayList<Network>(size);
 		for (int i = 0; i < size - 1; i++) {
 			inputNetworks.add(parent.cloneAndMutate(chanceOfMutation, intensity));
@@ -28,6 +35,8 @@ public class Generation {
 	}
 
 	public Generation(int generationNumber, int generationSize, int numberOfElitists, int numberOfParents, Generation previousGeneration, double mutationChance, double mutationIntensity) {
+		this.generationNumber = generationNumber;
+		
 		List<Network> inputNetworks = new ArrayList<Network>();
 		List<Network> parents = new ArrayList<Network>();
 		
@@ -51,7 +60,6 @@ public class Generation {
 			throw new IllegalArgumentException("Construction parameters did not add up.");
 		}
 		
-		this.generationNumber = generationNumber;
 		networks = inputNetworks;
 	}
 
@@ -74,7 +82,7 @@ public class Generation {
 
 	public void saveGeneration() {
 		IOManager.saveToFile(getNetworksSortedByFitness(getSize()), generationNumber);
-		IOManager.saveGenerationToFile(this, generationNumber);
+		IOManager.saveGenerationToFile(this);
 	}
 	
 	public Integer highestSingleFitness() {

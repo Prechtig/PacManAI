@@ -29,35 +29,14 @@ public class IOManager {
 	private static String fileExtension = ".json";
 	private static Gson gson = new Gson();
 	
-	public static void saveGenerationToFile(Generation generation, int generationNumber) {
+	public static void saveGenerationToFile(Generation generation) {
 		String json = gson.toJson(generation);
 		try {
-			FileUtils.write(new File(getGenerationFileName(generationNumber)), json);
+			FileUtils.write(new File(getGenerationFileName(generation.getGenerationNumber())), json);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-//	public static void saveGenomeToFile(Genome genome, int generationNumber) {
-//		saveGenomeToFile(genome, generationNumber, 1);
-//	}
-	
-//	public static void saveGenomeToFile(Genome genome, int generationNumber, int genomeNumber) {
-//		String json = gson.toJson(genome);
-//		try {
-//			FileUtils.write(new File(getGenomeFileName(generationNumber, genomeNumber)), json);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
-	
-//	public static void saveMultipleGenomesToFile(int generationNumber, List<Genome> genomes) {
-//		int genomeNumber = 1;
-//		for(Genome g: genomes) {
-//			saveGenomeToFile(g, generationNumber, genomeNumber);
-//			genomeNumber++;
-//		}
-//	}
 	
 	public static void saveToFile(List<Network> networks, int generationNumber) {
 		int networkNumber = 1;
@@ -75,32 +54,6 @@ public class IOManager {
 			e.printStackTrace();
 		}
 	}
-	
-//	public static List<Genome> readMultipleGenomes(int generationNumber) {
-//		List<Genome> result = new ArrayList<Genome>();
-//		
-//		int lastGenomeNumber = getLatestGenomeNumber(generationNumber);
-//		for(int i = 1; i < lastGenomeNumber+1; i++) {
-//			result.add(readGenome(generationNumber, i));
-//		}
-//		
-//		return result;
-//	}
-	
-//	public static Genome readGenome(int generationNumber, int genomeNumber) {
-//		String jsonAsString = null;
-//		try {
-//			jsonAsString = FileUtils.readFileToString(new File(getGenomeFileName(generationNumber, genomeNumber)));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return gson.fromJson(jsonAsString, Genome.class);
-//	}
-	
-//	public static List<Genome> readGenomesFromLatestGeneration() {
-//		return readMultipleGenomes(getLatestGenerationNumber());
-//	}
 	
 	public static List<Network> readMultipleNetworks(int generationNumber) {
 		List<Network> result = new ArrayList<Network>();
