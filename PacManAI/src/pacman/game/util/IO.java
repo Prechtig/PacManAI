@@ -62,10 +62,11 @@ public class IO
 	public static String loadFile(String fileName)
 	{
 		StringBuffer data=new StringBuffer();
-			
+		BufferedReader br = null;	
+		
         try
         {         	
-        	BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(DIRECTORY+fileName)));	 
+        	br=new BufferedReader(new InputStreamReader(new FileInputStream(DIRECTORY+fileName)));	 
             String input=br.readLine();	
             
             while(input!=null)
@@ -79,6 +80,15 @@ public class IO
         catch(IOException ioe)
         {
             ioe.printStackTrace();
+        }
+        finally {
+        	if(br != null) {
+        		try {
+					br.close();
+				} catch (IOException e) {
+					// Do nothing
+				}
+        	}
         }
         
         return data.toString();

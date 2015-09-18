@@ -43,9 +43,10 @@ public final class Maze
 	//Loads all the nodes from files and initialises all maze-specific information.
 	private void loadNodes(String fileName)
 	{
+		BufferedReader br = null;
         try
         {         	
-        	BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("../PacManAI/"+pathMazes+System.getProperty("file.separator")+fileName+".txt")));	 
+        	br=new BufferedReader(new InputStreamReader(new FileInputStream("../PacManAI/"+pathMazes+System.getProperty("file.separator")+fileName+".txt")));	 
             String input=br.readLine();		
             
             //preamble
@@ -91,6 +92,15 @@ public final class Maze
         {
             ioe.printStackTrace();
         }
+        finally {
+        	if(br != null) {
+        		try {
+					br.close();
+				} catch (IOException e) {
+					// Do nothing
+				}
+        	}
+        }
 	}
 	
 	/*
@@ -101,10 +111,11 @@ public final class Maze
 	private void loadDistances(String fileName)
 	{
 		this.shortestPathDistances=new int[((graph.length*(graph.length-1))/2)+graph.length];
+		BufferedReader br = null;
 		
         try
         {
-        	BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("../PacManAI/"+pathDistances+System.getProperty("file.separator")+fileName)));
+        	br=new BufferedReader(new InputStreamReader(new FileInputStream("../PacManAI/"+pathDistances+System.getProperty("file.separator")+fileName)));
             String input=br.readLine();
             
             int index=0;
@@ -118,6 +129,15 @@ public final class Maze
         catch(IOException ioe)
         {
             ioe.printStackTrace();
+        }
+        finally {
+        	if(br != null) {
+        		try {
+					br.close();
+				} catch (IOException e) {
+					// Do nothing
+				}
+        	}
         }
 	}
 }

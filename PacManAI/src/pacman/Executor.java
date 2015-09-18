@@ -28,7 +28,6 @@ import pacman.game.GameView;
  * game.entries.pacman respectively. The skeleton classes are already provided. The package
  * structure should not be changed (although you may create sub-packages in these packages).
  */
-@SuppressWarnings("unused")
 public class Executor
 {	
 	/**
@@ -366,10 +365,10 @@ public class Executor
     private static ArrayList<String> loadReplay(String fileName)
 	{
     	ArrayList<String> replay=new ArrayList<String>();
-		
+    	BufferedReader br = null;
         try
         {         	
-        	BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));	 
+        	br=new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));	 
             String input=br.readLine();		
             
             while(input!=null)
@@ -383,6 +382,15 @@ public class Executor
         catch(IOException ioe)
         {
             ioe.printStackTrace();
+        }
+        finally {
+        	if(br != null) {
+        		try {
+					br.close();
+				} catch (IOException e) {
+					// Do nothing
+				}
+        	}
         }
         
         return replay;
