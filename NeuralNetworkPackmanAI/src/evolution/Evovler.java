@@ -45,8 +45,8 @@ public class Evovler {
 		generationSaveInterval = 10;
 
 		// Mutation
-		numberOfElitists = 10;
-		numberOfParents = 4;
+		numberOfElitists = 8;
+		numberOfParents = 2;
 		mutationChance = 0.1;
 		mutationIntensity = 0.2;
 

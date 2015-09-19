@@ -1,7 +1,5 @@
 package evolution;
 
-import io.IOManager;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -77,12 +75,6 @@ public class Generation {
 			}
 		}));
 		return sortedNetworks;
-	}
-
-
-	public void saveGeneration() {
-		IOManager.saveToFile(getNetworksSortedByFitness(getSize()), generationNumber);
-		IOManager.saveGenerationToFile(this);
 	}
 	
 	public Integer highestSingleFitness() {
