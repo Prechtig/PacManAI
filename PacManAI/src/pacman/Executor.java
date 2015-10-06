@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Random;
 
-import pacman.ann.controller.SimpleNeuralNetworkController;
+import pacman.behaviour.tree.controller.BehaviourTreePacMan;
 import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
 import pacman.controllers.examples.StarterGhosts;
@@ -57,9 +57,9 @@ public class Executor
 		boolean visual=true;
 //		exec.runGameTimed(new NearestPillPacMan(),new AggressiveGhosts(),visual);
 //		exec.runGameTimed(new StarterPacMan(),new StarterGhosts(),visual);
-		exec.runGameTimed(new SimpleNeuralNetworkController(),new StarterGhosts(),visual);
-//		exec.runGameTimed(new BehaviourTreePacMan(),new StarterGhosts(),visual);
-//		exec.runGameTimed(new BehaviourTreePacMan(),new AggressiveGhosts(),visual);
+//		exec.runGameTimed(new SimpleNeuralNetworkController(),new StarterGhosts(),visual);
+//		exec.runGameTimed(new MCTS(), new StarterGhosts(), visual);
+		exec.runGameTimed(new BehaviourTreePacMan(),new StarterGhosts(),visual);
 		
 //		exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
 		//*/

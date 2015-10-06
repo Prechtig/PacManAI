@@ -1,2 +1,7 @@
 bin/
 .DS_Store
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+behaviourtree.zip
