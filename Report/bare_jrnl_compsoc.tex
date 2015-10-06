@@ -575,8 +575,8 @@ Every time the Ms. Pac-Man framework requests a move, the list of possible moves
 
 Another approach that could have been chosen, was to have four output nodes, each representing one of the four unique moves.
 
-\subsection{Teaching the Artificial Neural Network}
-There are multiple ways to learn an ANN how to do best. The three major ways are: Supervised learning, unsupervised learning and reinforcement learning. 
+\subsection{Teaching an Artificial Neural Network}
+There are multiple ways to learn an ANN how to do best. The four major ways are: Supervised learning, unsupervised learning, reinforcement learning and evolutionary learning.
 
 \subsubsection{Supervised learning}
 Supervised learning requires example data, where the input and output is known. By minimising the difference between the actual output and the expected output you can learn the network what to do.
@@ -587,9 +587,11 @@ Unsupervised learning does not require example data. A cost function is chosen a
 \subsubsection{Reinforcement learning}
 Instead of example data reinforcement learning observes someone or something else playing, using that as the reference.
 
-\subsubsection{Evolutionary algorithms}
-A completely different approach for teaching an ANN is to use an evolutionary approach. The idea comes from biology and the 
+\subsubsection{Evolutionary learning}
+A completely different approach for teaching an ANN is to use an evolutionary approach. The idea comes from biology and the ongoing evolution of every species. By using evolution it is possible to evolve ANN that can solve tasks without learning it what to do, for instance by making small mutations to networks and evolving the best ones.
 
+\subsection{Teaching an ANN to play Ms. Pac-Man}
+The chosen teaching paradigm is evolution
 
 
 % An example of a floating figure using the graphicx package.
