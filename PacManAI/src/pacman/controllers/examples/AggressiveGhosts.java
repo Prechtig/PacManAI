@@ -2,12 +2,12 @@ package pacman.controllers.examples;
 
 import java.util.EnumMap;
 import java.util.Random;
+
 import pacman.controllers.Controller;
-import pacman.game.Game;
+import pacman.game.Constants.DM;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
-
-import static pacman.game.Constants.*;
+import pacman.game.Game;
 
 /*
  * The Class AggressiveGhosts.

@@ -1,6 +1,7 @@
 package pacman.game.internal;
 
 import java.util.EnumMap;
+
 import pacman.game.Constants.MOVE;
 
 /*

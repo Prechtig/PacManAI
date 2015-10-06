@@ -3,8 +3,8 @@ package pacman.behaviour.tree.leaf;
 import pacman.behaviour.tree.DataContext;
 import pacman.behaviour.tree.INode;
 import pacman.behaviour.tree.Status;
-import pacman.game.Game;
 import pacman.game.Constants.DM;
+import pacman.game.Game;
 
 public class EatPowerPill implements INode {
 

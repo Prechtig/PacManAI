@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import network.Network;
+import pacman.ann.controller.NeuralNetworkController;
+import pacman.ann.network.Network;
 import pacman.game.Constants.DM;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;

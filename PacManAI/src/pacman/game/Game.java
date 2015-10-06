@@ -1,18 +1,37 @@
 package pacman.game;
 
+import static pacman.game.Constants.AWARD_LIFE_LEFT;
+import static pacman.game.Constants.COMMON_LAIR_TIME;
+import static pacman.game.Constants.EAT_DISTANCE;
+import static pacman.game.Constants.EDIBLE_TIME;
+import static pacman.game.Constants.EDIBLE_TIME_REDUCTION;
+import static pacman.game.Constants.EXTRA_LIFE_SCORE;
+import static pacman.game.Constants.GHOST_EAT_SCORE;
+import static pacman.game.Constants.GHOST_REVERSAL;
+import static pacman.game.Constants.GHOST_SPEED_REDUCTION;
+import static pacman.game.Constants.LAIR_REDUCTION;
+import static pacman.game.Constants.LEVEL_LIMIT;
+import static pacman.game.Constants.LEVEL_RESET_REDUCTION;
+import static pacman.game.Constants.MAX_TIME;
+import static pacman.game.Constants.NUM_GHOSTS;
+import static pacman.game.Constants.NUM_LIVES;
+import static pacman.game.Constants.NUM_MAZES;
+import static pacman.game.Constants.PILL;
+import static pacman.game.Constants.POWER_PILL;
+
 import java.util.BitSet;
 import java.util.EnumMap;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
+
 import pacman.game.Constants.DM;
+import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
 import pacman.game.internal.Ghost;
 import pacman.game.internal.Maze;
 import pacman.game.internal.Node;
 import pacman.game.internal.PacMan;
 import pacman.game.internal.PathsCache;
-
-import static pacman.game.Constants.*;
 
 /**
  * The implementation of Ms Pac-Man. This class contains the game engine and all methods required to

@@ -11,9 +11,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.apache.commons.io.filefilter.IOFileFilter;
 
-import com.google.gson.Gson;
+import pacman.ann.evolution.Generation;
 
-import evolution.Generation;
+import com.google.gson.Gson;
 
 public class IOManager {
 	private static String fileSeparator = System.getProperty("file.separator");

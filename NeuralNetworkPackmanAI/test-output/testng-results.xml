@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41" started-at="2015-09-11T14:14:37Z" finished-at="2015-09-11T14:14:37Z">
+  <suite name="Default suite" duration-ms="51" started-at="2015-10-06T06:45:41Z" finished-at="2015-10-06T06:45:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="41" started-at="2015-09-11T14:14:37Z" finished-at="2015-09-11T14:14:37Z">
+    <test name="Default test" duration-ms="51" started-at="2015-10-06T06:45:41Z" finished-at="2015-10-06T06:45:41Z">
       <class name="test.NeuralNetworkTest">
-        <test-method status="PASS" signature="testANN1()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN1" duration-ms="30" started-at="2015-09-11T16:14:37Z" finished-at="2015-09-11T16:14:37Z">
+        <test-method status="PASS" signature="testANN1()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN1" duration-ms="35" started-at="2015-10-06T08:45:41Z" finished-at="2015-10-06T08:45:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testANN1 -->
-        <test-method status="PASS" signature="testANN2()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN2" duration-ms="0" started-at="2015-09-11T16:14:37Z" finished-at="2015-09-11T16:14:37Z">
+        <test-method status="PASS" signature="testANN2()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN2" duration-ms="1" started-at="2015-10-06T08:45:41Z" finished-at="2015-10-06T08:45:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testANN2 -->
-        <test-method status="PASS" signature="testANN3()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN3" duration-ms="0" started-at="2015-09-11T16:14:37Z" finished-at="2015-09-11T16:14:37Z">
+        <test-method status="PASS" signature="testANN3()[pri:0, instance:test.NeuralNetworkTest@3ecf72fd]" name="testANN3" duration-ms="1" started-at="2015-10-06T08:45:41Z" finished-at="2015-10-06T08:45:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testANN3 -->

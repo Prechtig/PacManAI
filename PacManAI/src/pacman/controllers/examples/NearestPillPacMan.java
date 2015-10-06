@@ -1,9 +1,9 @@
 package pacman.controllers.examples;
 
 import pacman.controllers.Controller;
+import pacman.game.Constants.DM;
+import pacman.game.Constants.MOVE;
 import pacman.game.Game;
-
-import static pacman.game.Constants.*;
 
 /*
  * The Class NearestPillPacMan.

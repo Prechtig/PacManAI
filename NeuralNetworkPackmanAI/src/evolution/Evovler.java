@@ -1,17 +1,17 @@
 package evolution;
 
-import io.IOManager;
-
 import java.util.EnumMap;
 
-import network.Network;
 import pacman.Executor;
+import pacman.ann.controller.NeuralNetworkController;
+import pacman.ann.controller.SimpleNeuralNetworkController;
+import pacman.ann.evolution.Generation;
+import pacman.ann.io.IOManager;
+import pacman.ann.network.Network;
 import pacman.controllers.Controller;
 import pacman.controllers.examples.StarterGhosts;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
-import controller.NeuralNetworkController;
-import controller.SimpleNeuralNetworkController;
 
 public class Evovler {
 

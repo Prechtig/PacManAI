@@ -1,10 +1,12 @@
 package pacman.controllers.examples;
 
 import java.util.EnumMap;
-import pacman.controllers.Controller;
-import pacman.game.Game;
 
-import static pacman.game.Constants.*;
+import pacman.controllers.Controller;
+import pacman.game.Constants.DM;
+import pacman.game.Constants.GHOST;
+import pacman.game.Constants.MOVE;
+import pacman.game.Game;
 
 /*
  * The Class Legacy2TheReckoning.

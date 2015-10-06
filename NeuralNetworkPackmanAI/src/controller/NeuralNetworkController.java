@@ -1,9 +1,9 @@
 package controller;
 
-import network.Network;
+import pacman.ann.evolution.Generation;
+import pacman.ann.network.Network;
 import pacman.controllers.Controller;
 import pacman.game.Constants.MOVE;
-import evolution.Generation;
 
 public abstract class NeuralNetworkController extends Controller<MOVE> {
 

@@ -1,6 +1,7 @@
 package pacman.entries.ghosts;
 
 import java.util.EnumMap;
+
 import pacman.controllers.Controller;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
