@@ -87,7 +87,8 @@
 
 
 
-
+%% CUSTOM PACKAGES
+\usepackage{array}
 
 
 
@@ -381,7 +382,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Implementing AI in ms. Pacman}
+\title{Implementing AI in Ms. Pac-Man}
 %
 %
 % author names and IEEE memberships
@@ -436,8 +437,8 @@ E-mail: see http://www.michaelshell.org/contact.html
 
 
 % The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~13, No.~9, September~2014}%
-{Shell \MakeLowercase{\textit{et al.}}: Implementing AI in ms. Pacman}
+\markboth{Journal, October~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Implementing AI in Ms. Pac-Man}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 % 
@@ -476,12 +477,12 @@ E-mail: see http://www.michaelshell.org/contact.html
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+Is it viable to use artificial intelligence, AI, to play Ms. Pac-Man? This journal will touch upon different methods of AI to do just that.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Computer Society, IEEEtran, journal, \LaTeX, paper, template.
+Artificial Intelligence, Artificial Neural Network, Monte Carlo Tree Search, Behaviour Tree, Ms. Pac-Man.
 \end{IEEEkeywords}}
 
 
@@ -541,11 +542,11 @@ Computer Society, IEEEtran, journal, \LaTeX, paper, template.
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{he} purpose of the report is to discover the usability and performance of different AI algorithms in the Ms. Pac-Man framework.
+\IEEEPARstart{C}{an} a computer play Ms. Pac-Man? That is the question this journal seeks to answer. Multiple artificial intelligence, AI, algorithms will be analysed. They will have their usability and performance assessed in regards to playing Ms. Pac-Man. 
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
 
-\hfill mds
+%\hfill mds
  
 \hfill October 9, 2015
 
@@ -566,9 +567,11 @@ The output of input neurons is calculated as $ I_i + bias_i $, where $I_i$ is th
 The output of neurons in the subsequent layers are calculated as $ \left( \displaystyle \sum_{i = 0}^{n} O_i * W_i \right) + bias $, where $O_i$ is the output from neuron $i$ in the previous layer, $W_i$ is the weight between neuron $i$ in the previous layer and the current neuron and $bias$ is the bias of the current neuron.
 
 \subsubsection{Inputs to the Artificial Neural Network}
+\label{subsub:ann_inputs}
 The ANN developed for playing Ms. Pac-Man takes ten inputs: distances to all four ghosts, whether each ghost is edible, distance to nearest power pill and distance to the nearest pill.
 
 \subsubsection{Outputs from the Artificial Neural Network}
+\label{subsub:ann_outputs}
 In this particular ANN there is only one output node. This node is interpreted as how good a move is.
 
 Every time the Ms. Pac-Man framework requests a move, the list of possible moves are. For each possible move a run through the ANN is made, to determine how good that move is. The move with the highest output is then chosen as the move to do.
@@ -593,8 +596,67 @@ A completely different approach for teaching an ANN is to use an evolutionary ap
 \subsection{Teaching an ANN to play Ms. Pac-Man}
 The chosen teaching paradigm is evolution since it fits the jobs the most. There is no training data neither a cost function. Using reinforcement learning imposes an upper bound of ones own skill at playing Ms. Pac-Man.
 
-\subsubsection{Evolution parameters}
+\subsubsection{Algorithm parameters}
+In order to teach the ANN to play Ms. Pac-Man an evolution framework was developed. Both the ANN and the evolution framework has multiple parameters to play with in order to achieve the best performing AI. \\
 
+\noindent The important parameters include the following:
+
+\begin{itemize}
+	\item Network
+	\begin{itemize}
+		\item Number of input neurons
+		\item Number of output neurons
+		\item Number of neurons in the hidden layer
+		\item Initial weight of connections
+		\item Initial bias of neurons
+	\end{itemize}
+	
+	\item Evolution
+	\begin{itemize}
+		\item Evaluations per network
+		\item Networks in a generation
+		\item Number of elitists
+		\item Number of parents
+		\item Chance of mutation
+		\item Intensity of mutation
+	\end{itemize}
+\end{itemize}
+
+\noindent Several runs of the evolution framework has been made with different kind of parameters in order to find the best performing network.
+
+The number of input neurons defines how many inputs that are given to the network and the number of output neurons defines how many outputs the network will produce. The number of neurons in the hidden layer defines how many neurons there are in the hidden layer. The evolution framework does support multiple hidden layers, but is cumbersome to use at the moment. This decision was made to limit the amount of parameters and thereby limiting the search space.
+
+Initial weight of connections is used to set the initial weight of the connections in the first network. Initial bias of neurons is the same as the aforementioned. A different approach could be to just randomise every weight and bias of the network. I chose the fixed value approach because it is slightly simpler to implement, and the value will change over time anyway.
+
+Evaluations per network is how many games are played with a given network. Since Ms. Pac-Man is not deterministic, one can use a high number of evaluations to minimise the noise created from the indeterministic behaviour.
+
+The number of elitists are the survivors of each generation. These are the networks that will be transferred to the next generation without being mutated.
+
+The number of parents is the amount n best scoring networks that will be mutated in order to produce the remaining population.
+
+Chance and intensity of mutation is how likely	 a given weight or neuron is to mutate, and how intense that mutation is.
+
+\subsubsection{Experiments}
+In order to develop the best network I ran the evolution framework several times adjusting different parameters each time. A small sample of these experiments are shown in the following table. For all experiments shown, the chance to mutate was 0.1 and the intensity of mutation was 0.2. The size of every generation was 100 and each network was evaluated 25 times.
+
+% Column definition used to make fixed width right aligned columns
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1\columnwidth}}
+
+\noindent \\
+\begin{tabular}{ | r | r | r | r | }
+	\hline
+	Hidden neurons & Parents & Avg. score & Best avg. score \\ \hline
+	0  & 2  & 2080 & 2632 \\ \hline
+	0  & 10 & 2345 & 2868 \\ \hline
+	7  & 2  & 1634 & 3458 \\ \hline
+	7  & 10 & 2078 & 2799 \\ \hline
+	15 & 2  & 2208 & 2696 \\ \hline
+	15 & 10 & 2273 & 2635 \\
+	\hline
+\end{tabular}
+
+\noindent \\
+The best performing network i found uses ten inputs as described in section~\ref{subsub:ann_inputs} and one output as described in section~\ref{subsub:ann_outputs}. The number of neurons in the hidden layer are seven.
 
 
 % An example of a floating figure using the graphicx package.

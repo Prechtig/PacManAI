@@ -35,7 +35,7 @@ public class Evovler {
 		
 		// Neurons
 		inputNeurons = 10;
-		hiddenLayerNeurons = 3;
+		hiddenLayerNeurons = 7;
 		outputNeurons = 1;
 
 		// Generation
@@ -44,8 +44,8 @@ public class Evovler {
 		generationSaveInterval = 10;
 
 		// Mutation
-		numberOfElitists = 8;
-		numberOfParents = 2;
+		numberOfElitists = 10;
+		numberOfParents = 10;
 		mutationChance = 0.1;
 		mutationIntensity = 0.2;
 
@@ -60,10 +60,10 @@ public class Evovler {
 	public static void main(String[] args) {
 		setDefaultArgs();
 
-		Network network = new Network(inputNeurons, hiddenLayerNeurons, outputNeurons);
+		Network network = new Network(inputNeurons, outputNeurons);
 		network.setWeightsAndBiases(initialWeight, initialBias);
 		Generation generation = new Generation(generationNumber, network, generationSize, mutationChance, mutationIntensity);
-
+		
 		pacmanController = new SimpleNeuralNetworkController(network);
 		
 		do {

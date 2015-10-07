@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Random;
 
-import pacman.behaviour.tree.controller.BehaviourTreePacMan;
 import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
+import pacman.controllers.KeyBoardInput;
 import pacman.controllers.examples.StarterGhosts;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
@@ -59,9 +59,9 @@ public class Executor
 //		exec.runGameTimed(new StarterPacMan(),new StarterGhosts(),visual);
 //		exec.runGameTimed(new SimpleNeuralNetworkController(),new StarterGhosts(),visual);
 //		exec.runGameTimed(new MCTS(), new StarterGhosts(), visual);
-		exec.runGameTimed(new BehaviourTreePacMan(),new StarterGhosts(),visual);
+//		exec.runGameTimed(new BehaviourTreePacMan(),new StarterGhosts(),visual);
 		
-//		exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
+		exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
 		//*/
 		
 		/*
