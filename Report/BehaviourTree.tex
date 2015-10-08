@@ -40,6 +40,35 @@ Consists of a single child. Will visit its child. If success is returned it will
 \subsection{Algorithm parameters}
 I have only used one parameter for this algorithm, flee distance, which is the distance at which Pac-Man will start fleeing, if a ghost is gloser than that.
 
+\subsection{Implementation}
+The implemented behaviour tree is shown below. Each node is an abbreviation of a node or task:
+
+\begin{description}
+	\item[R] Root node
+	\item[Sq] Sequence control flow node
+	\item[Sl] Selector control flow node
+	\item[GTC] GhostTooClose task
+	\item[PPCTC] PowerPillCloserThanGhost task
+	\item[EPP] EatPowerPill task
+	\item[RA] RunAway task
+	\item[CEQ] CanEatGhost
+	\item[EG] EatGhost
+	\item[EP] EatPill
+\end{description}
+
+\noindent
+\Tree[.R [.Sq 
+				[.GTC ]
+				[.Sl
+					[.Sq 
+						[.PPCTG ]
+						[.EPP ]]
+					[.RA ]]]
+			[.Sq 
+				[.CEG ]
+				[.EG ]]
+			[.EP ]]
+
 \subsection{Experiments}
 The only experiments done is regarding the flee distance. The game was run 1000 times with each distance and an average score was found. The ghost controller used is the \texttt{Legacy} controller. The results is presented below. \\
 
@@ -86,10 +115,6 @@ I ran another experiment using the \texttt{AggressiveGhosts} controller. Once ag
 \end{tabular} \\
 
 It is interesting to see how another flee distance is better when the ghost behave differently, i.e. another ghost controller is used. 
-
-
-
-
 
 
 
