@@ -38,27 +38,54 @@ Consists of a single child. Will visit its child and when either success or fail
 Consists of a single child. Will visit its child. If success is returned it will visit its child again. If failure is returned it will return failure to its parent.
 
 \subsection{Algorithm parameters}
-The only algorithm parameter used for this technique is the distance from Pac-Man to a ghost, that triggers Pac-Man to flee. 
-
-
+I have only used one parameter for this algorithm, flee distance, which is the distance at which Pac-Man will start fleeing, if a ghost is gloser than that.
 
 \subsection{Experiments}
-\begin{tabular}{ | r | r | }
+The only experiments done is regarding the flee distance. The game was run 1000 times with each distance and an average score was found. The ghost controller used is the \texttt{Legacy} controller. The results is presented below. \\
+
+\begin{tabular}{ | r | l | }
 	\hline
-	Flee dist. & Avg. score  \\ \hline
-	5 & 6279.24  \\ \hline
-	10 & 5630.81  \\ \hline
-	20 & 3707.33  \\ \hline
+	Flee dist. & Avg. score \\ \hline
+	4 & 5960.95 \\ \hline
+	5 & 6279.24 \\ \hline
+	6 & 6143.34 \\ \hline
+	10 & 5630.81 \\ \hline
+	20 & 3707.33 \\ \hline
 	30 & 2780.95 \\ \hline
 	40 & 2589.87 \\ \hline
-	50 & 4487.14 \\
+	45 & 5256.68 \\ \hline
+	50 & 4538.92 \\ \hline
+	55 & 3684.87 \\ \hline
+	60 & 2685.32 \\
 	\hline
-\end{tabular}
+\end{tabular} \\
 
+\noindent
+The table shows there are a clear difference between the performance using different fleeing distances. The best yielding fleeing distance is five.
 
+I find it peculiar as to why a fleeing distance of around 45-50 yields relatively high results compared to values around that. I have no reasonable explanation as why this happens. \\
 
+\noindent
+I ran another experiment using the \texttt{AggressiveGhosts} controller. Once again the game was run 1000 times per fleeing distance. \\
 
+\begin{tabular}{ | r | l | }
+	\hline
+	Flee dist. & Avg. score \\ \hline
+	4 & 6259.07 \\ \hline
+	5 & 6463.39 \\ \hline
+	6 & 6417.5 \\ \hline
+	10 & 8317.4 \\ \hline
+	20 & 8511.91 \\ \hline
+	30 & 3207.33 \\ \hline
+	40 & 2042.7 \\ \hline
+	45 & 5792.69 \\ \hline
+	50 & 3104.77 \\ \hline
+	55 & 2822.72 \\ \hline
+	60 & 1887.6 \\
+	\hline
+\end{tabular} \\
 
+It is interesting to see how another flee distance is better when the ghost behave differently, i.e. another ghost controller is used. 
 
 
 

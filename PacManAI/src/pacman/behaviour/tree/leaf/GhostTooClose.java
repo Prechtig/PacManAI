@@ -8,7 +8,7 @@ import pacman.game.Game;
 
 public class GhostTooClose implements INode {
 	
-	protected final int minDistance=5;
+	protected final int minDistance=20;
 
 	@Override
 	public Status run(Game game) {
