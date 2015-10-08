@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Random;
 
+import pacman.behaviour.tree.controller.BehaviourTreePacMan;
 import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
-import pacman.controllers.KeyBoardInput;
-import pacman.controllers.examples.StarterGhosts;
+import pacman.controllers.examples.Legacy;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
 import pacman.game.Game;
@@ -39,11 +39,9 @@ public class Executor
 	{
 		Executor exec=new Executor();
 
-		/*
 		//run multiple games in batch mode - good for testing.
-		int numTrials=10;
-		exec.runExperiment(new RandomPacMan(),new RandomGhosts(),numTrials);
-		 */
+		int numTrials=1000;
+		exec.runExperiment(new BehaviourTreePacMan(),new Legacy(),numTrials);
 		
 		/*
 		//run a game in synchronous mode: game waits until controllers respond.
@@ -59,9 +57,8 @@ public class Executor
 //		exec.runGameTimed(new StarterPacMan(),new StarterGhosts(),visual);
 //		exec.runGameTimed(new SimpleNeuralNetworkController(),new StarterGhosts(),visual);
 //		exec.runGameTimed(new MCTS(), new StarterGhosts(), visual);
-//		exec.runGameTimed(new BehaviourTreePacMan(),new StarterGhosts(),visual);
-		
-		exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
+//		exec.runGameTimed(new BehaviourTreePacMan(),new Legacy(),visual);
+//		exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
 		//*/
 		
 		/*

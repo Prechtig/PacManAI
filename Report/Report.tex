@@ -352,7 +352,7 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
@@ -406,15 +406,7 @@
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
-\author{Andreas~Precht~Poulsen% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell is with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332.\protect\\
-% note need leading \protect in front of \\ to get a newline within \thanks as
-% \\ is fragile and will error, could use \hfil\break instead.
-E-mail: see http://www.michaelshell.org/contact.html
-\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops an unwanted space
-\thanks{Manuscript received April 19, 2005; revised September 17, 2014.}}
+\author{Andreas~Precht~Poulsen, \textit{appo@itu.dk}, October 9, 2015}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -542,22 +534,18 @@ Artificial Intelligence, Artificial Neural Network, Monte Carlo Tree Search, Beh
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{C}{an} a computer play Ms. Pac-Man? That is the question this journal seeks to answer. Multiple artificial intelligence, AI, algorithms will be analysed. They will have their usability and performance assessed in regards to playing Ms. Pac-Man. 
+\IEEEPARstart{C}{an} a computer play Ms. Pac-Man? That is the question this journal seeks to answer. Multiple artificial intelligence, AI, algorithms will be analysed. They will have their usability and performance assessed in regards to playing Ms. Pac-Man.
+The report will evaluate Artificial Neural Networks, referred to as ANN, Monte Carlo Tree Search, referred to as MCTS and Behaviour Tree, referred to as BT.
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
-
-%\hfill mds
- 
-\hfill October 9, 2015
-
-\section{Algorithms}
-The report will evaluate Artificial Neural Networks, referred to as ANN, Monte Carlo Tree Search, referred to as MCTS and Behaviour Tree, referred to as BT.
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
 \input{ArtificialNeuralNetwork.tex}
 \input{MonteCarloTreeSearch.tex}
+\input{BehaviourTree.tex}
+\input{Conclusion.tex}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -657,11 +645,6 @@ The report will evaluate Artificial Neural Networks, referred to as ANN, Monte C
 
 
 
-\section{Conclusion}
-The conclusion goes here.
-
-
-
 
 
 % if have a single appendix:
@@ -734,9 +717,14 @@ The authors would like to thank...
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\bibitem{lecture:mcts}
+S.~Risi, lecture notes on MCTS, \url{https://learnit.itu.dk/pluginfile.php/140291/mod_resource/content/1/8mcts.pdf}
+
+\bibitem{spore}
+C.~Checker, My Liner Notes for Spore/Spore Behavior Tree Docs, \url{http://chrishecker.com/My_liner_notes_for_spore/Spore_Behavior_Tree_Docs}
+
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
 \end{thebibliography}
 

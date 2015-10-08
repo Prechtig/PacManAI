@@ -1,0 +1,83 @@
+% !TEX root = Report.tex
+
+\section{Behaviour Tree}
+Behaviour Trees are used to describe behaviour of non-player characters. Behaviour Trees are used in different games, for instance in EAs game Spore\cite{spore}.
+
+\subsection{Description}
+A BT is a directed tree. A node can either be the root node, a control flow node or a given task. The root node has no parent as the only node. Every node has one or more children, unless it is a task. Each node can be run and will return one of the following results:
+
+\begin{itemize}
+	\item Success
+	\item Failure
+	\item Running
+\end{itemize} 
+
+Success is returned when a task or control flow is successful. Failure is returned when a task or control flow failed. Running is returned when the given task or control flow node is still running.
+
+\subsubsection{Control flow node}
+A control flow node is a node that controls the flow in the tree. There are many types of control flow nodes. Some of the most common include: \\
+
+\newcommand{\nodeHeading}[1]{\noindent \textbf{#1}\\}
+
+\nodeHeading{Sequence}
+Consists of multiple children. Will visit every child node in sequence beginning with the first. If it returns success it will visit the next child. If it returns failure it will return failure. If all children has been visited and they all returned success the sequence node will return success. \\
+
+\nodeHeading{Selector}
+Consists of multiple children. Will visit every child node in sequence beginning with the first. If it returns success it will return success. If it returns failure it will visits the next child. If all children has been visited and they all returned failure the selector node will return failure. \\
+
+\nodeHeading{Inverter}
+Consists of a single child. Will visit its child and return the opposite of what was returned. If success was returned it will return failure. If failure was returned it will return success. \\
+
+\nodeHeading{Succeeder}
+Consists of a single child. Will visit its child and return success regardless of what was returned by the children. The opposite of this node is not needed as an inverter with a succeeder as a child is exactly that. \\
+
+\nodeHeading{Repeater}
+Consists of a single child. Will visit its child and when either success or failure is returned from the child it will visit its child again. \\
+
+\nodeHeading{Repeat Until Fail}
+Consists of a single child. Will visit its child. If success is returned it will visit its child again. If failure is returned it will return failure to its parent.
+
+\subsection{Algorithm parameters}
+The only algorithm parameter used for this technique is the distance from Pac-Man to a ghost, that triggers Pac-Man to flee. 
+
+
+
+\subsection{Experiments}
+\begin{tabular}{ | r | r | }
+	\hline
+	Flee dist. & Avg. score  \\ \hline
+	5 & 6279.24  \\ \hline
+	10 & 5630.81  \\ \hline
+	20 & 3707.33  \\ \hline
+	30 & 2780.95 \\ \hline
+	40 & 2589.87 \\ \hline
+	50 & 4487.14 \\
+	\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

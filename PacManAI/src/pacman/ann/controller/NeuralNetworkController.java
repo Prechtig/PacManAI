@@ -12,7 +12,7 @@ public abstract class NeuralNetworkController extends Controller<MOVE> {
 	protected int currentRunNumber;
 	protected final int initialRunNumber = 1; 
 
-	public NeuralNetworkController(Network network) {
+	protected NeuralNetworkController(Network network) {
 		super();
 		this.network = network;
 		currentRunNumber = initialRunNumber;

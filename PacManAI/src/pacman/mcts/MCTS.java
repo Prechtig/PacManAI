@@ -16,7 +16,7 @@ public class MCTS extends Controller<MOVE> {
 	
 	private static Controller<EnumMap<GHOST,MOVE>> ghostController = new StarterGhosts();
 	private static final double c = Math.sqrt(2d);
-	private static final int depth = 25;
+	private static final int depth = 1_000;
 	
 	private MOVE currentDirection = MOVE.LEFT;
 	
@@ -67,7 +67,7 @@ public class MCTS extends Controller<MOVE> {
 		Game game = node.game().copy();
 		int currentDepth = 0;
 		MOVE localCurrentDirection = null;
-		while(currentDepth < depth) {
+		while(currentDepth < depth && !game.gameOver()) {
 			if(currentDepth == 0 || isJunction(game)) {
 				ArrayList<MOVE> moves = new ArrayList<MOVE>(Arrays.asList(game.getPossibleMoves(game.getPacmanCurrentNodeIndex())));
 				Collections.shuffle(moves);

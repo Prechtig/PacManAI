@@ -71,7 +71,7 @@ public class Node {
 	}
 	
 	public void addScore(int score) {
-		score += score;
+		totalScore += score;
 	}
 	
 	public int totalScore() {

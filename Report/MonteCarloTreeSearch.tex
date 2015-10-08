@@ -1,0 +1,98 @@
+% !TEX root = Report.tex
+
+\section{Monte Carlo Tree Search}
+Monte Carlo Tree Search is the second algorithm explored in this journal. It is an algorithm that has proved its worth playing go. Since 2007 all the best AI agents for playing go has been implemented using MCTS\cite[slide~5]{lecture:mcts}. Go is a complex game so I figured that if it can do well on Go, it might be able to do well in Ms. Pac-Man as well.
+
+\subsection{Description}
+MCTS is a search algorithm that operates on trees.
+The algorithm creates a new tree every time a request for a move is made. The first thing the algorithm does is to create a root node with the initial state. It will then repeat four steps as long as the algorithm is within some defined computational budget. The four steps it uses are: Selection, expansion, simulation and back-propagation.
+
+\subsubsection{Selection}
+Select successive children until a leaf node is reached, beginning from the root node. How the children are selected depends on implementation.
+
+\subsubsection{Expansion}
+Create one or more child nodes of the previously chosen node. Choose one of these to use for simulation.
+
+\subsubsection{Simulation}
+Do a random play-out of the game beginning from the state of the expanded node.
+
+\subsubsection{Back-propagation}
+Update information regarding score and visit count in the nodes on the path from the root node to the expanded node.
+
+\subsection{Representation}
+Each node in the tree has information regarding the parent, move, number of visits, total score, children and the game state.
+
+The parent is used to find the root node. It is the only node with \texttt{null} as parent, since it has no parent.
+
+The move determines what move was made to get to the given state of the node.
+
+Number of visits are the amount of times the node has been visited, either directly or through one of its children og children's children etc.
+
+Total score is the total score of the node itself plus all the children and the children's children etc.
+
+Children are the children of the node. Each one representing one of the up to four uniques moves that are allowed.
+
+Game state is the state of the game.
+
+\subsection{Algorithm parameters}
+Since the algorithm explore possible moves and evaluate how good a move is, there is not need for too many parameters. The only parameter that the algorithm uses, is a depth parameter. It defines how many moves the simulation step should simulate.
+
+Having a high number of simulated moves per simulation means that there a simulated move is more likely to reflect the goodness of said move but at the cost of not being able to explore many different moves.
+
+Having a smaller number of simulated moves gives more time to expand more nodes.
+
+\subsection{Experiments}
+\label{sub:mcts_experiments}
+In order to find the best depth to run the algorithm with, i ran multiple experiments, where the only variable was the depth. Every depth was tested with 100 runs of the algorithm to try and minimise the noise produced as a result of the nondeterministic behaviour of the ghosts.
+
+\noindent \\
+\begin{tabular}{ | r | r | }
+	\hline
+	Depth & Score \\ \hline
+	10  & 491.2 \\ \hline
+	25  & 503.4 \\ \hline
+	50  & 600.6 \\ \hline
+	100 & 582.1 \\ \hline
+	500 & 872.4 \\ \hline
+	2500 & 1077.4 \\ \hline
+	5000 & 878.2 \\ \hline
+	10000 & 867.8 \\
+	\hline
+\end{tabular} \\
+
+\noindent
+Contrary to my expectations the depth needed was way higher than first anticipated.
+I expected the optimal depth to be around 25-50, but the optimal seems to be around tenfold that. I believe the reason for this is that advancing the game state i extremely quick and therefore the depth is not a bottleneck before being way higher.
+
+I ended up settling with a depth of 2500 moves per simulation since that was the best yielded the highest average score.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
