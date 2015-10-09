@@ -17,7 +17,6 @@ import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
 import pacman.controllers.KeyBoardInput;
 import pacman.controllers.examples.Legacy;
-import pacman.controllers.examples.StarterGhosts;
 import pacman.game.Constants.GHOST;
 import pacman.game.Constants.MOVE;
 import pacman.game.Game;
